@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fun()">fun()</button>
+    <script>
+        function fun() {
+            function Person() {
+                this.property = true;
+                this.getProperty = function () {
+                    return this.property;
+                };
+            }
+            function Student(){
+                this.name = "name";
+            }
+            Student.prototype = new Person();
+            var ChaoX = new Student();
+            console.log(ChaoX.property);
+            console.log(ChaoX.getProperty());
+            console.log(ChaoX instanceof Person);
+        }
+    </script>
+</body>
+</html>
