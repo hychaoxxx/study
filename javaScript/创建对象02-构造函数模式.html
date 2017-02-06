@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象-构造函数模式</title>
+</head>
+<body>
+	<button onclick="fun()">创建对象-构造函数模式</button>
+	<script type="text/javascript">
+		function fun(){
+			function Person(name,age,job){
+				this.name = name;
+				this.age = age;
+				this.job = job;
+				this.sayName = function(){
+					alert(this.name);
+				};
+			}
+			var person1 = new Person("ChaoX",3,"FEE");
+			var person2 = new Person("Jing",0,"FEE");
+			alert(person1.name + "&" + person2.name);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象-工厂模式</title>
+</head>
+<body>
+	<button onclick="fun()">创建对象-工厂模式</button>
+	<script type="text/javascript">
+		function fun(){
+			function createPerson(name,age,job) {
+				var  o = new Object();
+				o.name = name;
+				o.age = age;
+				o.job = job;
+				o.sayName = function(){
+					alert(this.name);
+				};
+				return o;
+			}
+			var person1 = createPerson("ChaoX",3,"FEE");
+			var person2 = createPerson("Jing",0,"FEE");
+			alert(person1.name + "&" + person2.name);
+		}
+	</script>
+</body>
+</html>
