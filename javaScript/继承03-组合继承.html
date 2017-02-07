@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fun()">DevTools</button>
+    <script>
+        function fun() {
+            //组合继承用原型链继承继承方法借用构造函数继承属性
+            function SuperType(name) {
+                this.name = name;
+                this.colors = ["red","blue","green"];
+            }
+            SuperType.prototype.sayName = function () {
+                console.log(this.name);
+            };
+            function SubType(name,age) {
+                //继承属性
+                SuperType.call(this,name);
+                this.age = age;
+            }
+            //继承方法
+            SubType.prototype = new SuperType();
+            SubType.prototype.constructor = SubType;
+            SubType.prototype.sayAge = function () {
+                console.log(this.age);
+            };
+            var ins1 = new SubType("ChaoX",3);
+            ins1.colors.push("black");
+            console.log(ins1.colors);
+            ins1.sayName();
+            ins1.sayAge();
+
+            var ins2 = new SubType("Jing",0);
+            console.log(ins2.colors);
+            ins2.sayName();
+            ins2.sayAge();
+        }
+    </script>
+</body>
+</html>
