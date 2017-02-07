@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fun()">DevTools</button>
+    <script>
+        function fun() {
+            function Person(hobby){
+                this.sex = ["男","女"];
+                this.hobby = hobby;
+                this.food = ["milk","cola"];
+            }
+            function Student() {
+                //Student继承了Person,相当于在Student下用call()调用Person,Student也就具有了Person的所有初始化代码
+                //借用构造函数继承可以在子类型中给超类型传参数
+                Person.call(this,"hahaha");
+            }
+            var ChaoX = new Student();
+            console.log(ChaoX.sex[0]);
+            //每个实例都拥有自己的副本，不相互影响
+            ChaoX.food.push("egg");
+            var Jing = new Student();
+            console.log(Jing.food);
+            console.log(Jing.hobby);
+        }
+    </script>
+</body>
+</html>
