@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="console.log(factorial(Math.floor(Math.random() * 10 + 1)))">DevTools</button>
+    <script>
+            function factorial(num) {
+                if (num < 1) {
+                    return 1;
+                }else{
+                    return num * arguments.callee(num - 1);
+                }
+            }
+            /*严格模式下也可用
+            var factorial = (function f(num) {
+                if (num < 1) {
+                    return 1;
+                }else{
+                    return num * f(num - 1);
+                }
+            });*/
+    </script>
+</body>
+</html>
